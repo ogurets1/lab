@@ -1,21 +1,36 @@
 def sum_of_digits(number):
     """
-    Функция находит сумму цифр числа.
+    Функция для нахождения суммы цифр числа.
+    
+    Args:
+        number (int): Целое число.
+        
+    Returns:
+        int: Сумма цифр числа.
     """
-    return sum(int(digit) for digit in str(number))
+    sum_digits = 0
+    while number > 0:
+        digit = number % 10
+        sum_digits += digit
+        number //= 10
+    return sum_digits
 
 
-def max_sum_of_digits(numbers):
+def number_with_max_sum(numbers):
     """
-    Функция выбирает число с максимальной суммой цифр.
-    """
-    max_number = numbers[0]
-    max_sum = sum_of_digits(max_number)
+    Функция для выбора числа с максимальной суммой цифр из списка.
 
-    for number in numbers[1:]:
+    Args:
+        numbers (list): Список целых чисел.
+
+    Returns:
+        int: Число с максимальной суммой цифр.
+    """
+    max_sum = float('-inf')
+    number_with_max = None
+    for number in numbers:
         current_sum = sum_of_digits(number)
         if current_sum > max_sum:
-            max_number = number
             max_sum = current_sum
-
-    return max_number
+            number_with_max = number
+    return number_with_max

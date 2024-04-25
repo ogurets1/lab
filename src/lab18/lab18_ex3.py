@@ -1,11 +1,9 @@
 import module2
+# Ввод списка чисел
+numbers = list(map(int, input("Введите целые числа через пробел: ").split()))
 
-# Ввод количества чисел
-N = int(input("Введите количество чисел: "))
+# Нахождение числа с максимальной суммой цифр
+result = module2.number_with_max_sum(numbers)
 
-# Ввод чисел
-numbers = [int(input(f"Введите число {i + 1}: ")) for i in range(N)]
-
-# Вызов функции и вывод результата
-result_number = module2.max_sum_of_digits(numbers)
-print("Число с максимальной суммой цифр:", result_number)
+# Вывод результата
+print(f"Число с максимальной суммой цифр: {result}")
